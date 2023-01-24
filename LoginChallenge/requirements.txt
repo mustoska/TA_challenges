@@ -8,6 +8,6 @@ robotframework==6.0.2
 robotframework-assertion-engine==1.0.0
 robotframework-browser==15.1.0
 robotframework-pythonlibcore==4.0.0
-setuptools==65.5.0
+setuptools==66.1.1
 typing_extensions==4.4.0
 wrapt==1.14.1
