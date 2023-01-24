@@ -1,0 +1,11 @@
+#Run this file with command: "robot -A testRunner.txt"
+
+#Defines options
+--loglevel DEBUG
+--outputdir test_results
+--xunit xunit_log.xml
+--name Bubble Sort Solution Robot
+
+#IN USE ROBOTS
+bubbleSort.robot
+
