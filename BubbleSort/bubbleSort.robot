@@ -10,7 +10,6 @@ ${FIRST_BUBBLE_ELE}
 ${SECOND_BUBBLE_ELE}
 ${CURRENT_LIST}
 *** Test Cases ***
-
 Arragne The Array
     ${CURRENT_LIST}=    Read Array Including Bubble
     WHILE    ${CURRENT_LIST} != ${CORRECT_LIST}
@@ -21,17 +20,21 @@ Arragne The Array
         ELSE
             Push Next Button
         END
-        Sleep    0.5 sec
-        #Stop If Good job! Is Shown
+        Sleep    0.1 sec
+        IF     ${CURRENT_LIST} == ${CORRECT_LIST}
+            Pass Execution    Good job!
+        END
+        ${CURRENT_LIST}=    Read Array Including Bubble
     END
     
 *** Keywords ***
-Open Session And The Page 
+Open Session And The Page
+    Set Browser Timeout    1 min
     New Browser    browser=firefox   headless=False
     New Context    viewport={'width': 1920, 'height': 1080}
     New Page       ${BASE_URL}
     Get Title      ==    ${MAIN_TITLE}
-
+    
 Push Swap Button
     Click    css=#button1.sortButton
 
@@ -53,11 +56,3 @@ Read Array Including Bubble
     ${CURRENT_LIST}=    Convert To List    ${CURRENT_NUMBERS}
     Remove Values From List    ${CURRENT_LIST}    \n
     RETURN    ${CURRENT_LIST}
-    
-Stop If Good job! Is Shown
-    ${PASS_POPUP_SHOWN}=    Run Keyword And Continue On Failure    Get Text    css=.sweet-alert > h2:nth-child(6)
-    IF    ${PASS_POPUP_SHOWN} == "Good job!"
-        Pass Execution    Puzzle solved!    
-    END
-    
-
