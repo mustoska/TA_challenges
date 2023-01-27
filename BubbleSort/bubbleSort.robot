@@ -20,11 +20,11 @@ Arragne The Array
         ELSE
             Push Next Button
         END
-        Sleep    0.1 sec
+        Sleep    0.3 sec
+        ${CURRENT_LIST}=    Read Array Including Bubble
         IF     ${CURRENT_LIST} == ${CORRECT_LIST}
             Pass Execution    Good job!
         END
-        ${CURRENT_LIST}=    Read Array Including Bubble
     END
     
 *** Keywords ***
