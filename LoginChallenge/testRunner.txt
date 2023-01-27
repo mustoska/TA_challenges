@@ -3,7 +3,6 @@
 #Defines options
 --loglevel DEBUG
 --outputdir test_results
---xunit xunit_log.xml
 --name loginTest
 
 #IN USE ROBOTS
